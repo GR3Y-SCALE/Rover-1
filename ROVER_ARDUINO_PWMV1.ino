@@ -3,6 +3,7 @@
 /* This sketch was made by Gr3y, feel free to use this sketch for any applicable project
  * this sketch uses pins 2, 7, 8 for signal in from a suitable RC receiver and interprets the signal for use with a H-Bridge motor controller.
  * chhannel length is the signals position, i.e 1500 is half way and 2000 is full forward.
+ * sketch also uses pwm to control the speed of the motors
  *  please message me @ gr3yscl@protonmail.com for any questions about the project or even your own adaptations
  */
 const byte channel_pin[] = {2, 7, 8};
@@ -67,12 +68,12 @@ void loop() {
   //motor 1
   
   if (channel_length[1] >= 1600) { // if the channel position is above middle
-    digitalWrite(motor1, LOW); //motor pin low means motor direction is forward
+    digitalWrite(motor1, HIGH); //motor pin low means motor direction is forward
     motor1VAL = map(channel_length[1], 1600, 2000, 0, 255); //maps the input from the appropiate channel to enable variable speed
     analogWrite(enable_m1, motor1VAL); // writes the speed value (pwm) to the motor enable pin
     
   }else if (channel_length[1] <= 1400) {
-    digitalWrite(motor1, HIGH);
+    digitalWrite(motor1, LOW);
     motor1VAL = map(channel_length[1], 1400, 950, 0, 255);
     analogWrite(enable_m1, motor1VAL);
     

@@ -1,10 +1,10 @@
 #include <PinChangeInterrupt.h>
 
-/*
- * Define pins used to provide RC PWM signal to Arduino
- * Pins 8, 9 and 10 are used since they work on both ATMega328 and 
- * ATMega32u4 board. So this code will work on Uno/Mini/Nano/Micro/Leonardo
- * See PinChangeInterrupt documentation for usable pins on other boards
+/* This sketch was made by Gr3y, feel free to use this sketch for any applicable project
+ * this sketch uses pins 2, 7, 8 for signal in from a suitable RC receiver and interprets the signal for use with a H-Bridge motor controller.
+ * chhannel length is the signals position, i.e 1500 is half way and 2000 is full forward.
+ * this sketch uses analog motor control so no variable speed control
+ *  please message me @ gr3yscl@protonmail.com for any questions about the project or even your own adaptations
  */
 const byte channel_pin[] = {2, 7, 8};
 volatile unsigned long rising_start[] = {0, 0, 0};
