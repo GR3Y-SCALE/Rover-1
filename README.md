@@ -1,4 +1,4 @@
-# Rover-2
+# Rover-1
 
 ## How To Use
 the follow the pinout located inside the arduino file
